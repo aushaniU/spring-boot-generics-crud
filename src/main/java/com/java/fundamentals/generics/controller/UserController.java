@@ -2,6 +2,7 @@ package com.java.fundamentals.generics.controller;
 
 import com.java.fundamentals.generics.dto.UserDTO;
 import com.java.fundamentals.generics.services.UserService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,7 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<UserDTO>  addUser(@RequestBody UserDTO user) {
+    public ResponseEntity<UserDTO>  addUser(@Valid @RequestBody UserDTO user) {
         return ResponseEntity.ok(userService.addUser(user));
     }
 
